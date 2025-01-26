@@ -4,10 +4,10 @@
 #define PWM1_PIN            5
 #define PWM2_PIN            6      
 // 74HCT595N Chip pins
-#define SHCP_PIN            2                               // The displacement of the clock  时钟的位移
-#define EN_PIN              7                               // Can make control 使能引脚
-#define DATA_PIN            8                               // Serial data  串行数据
-#define STCP_PIN            4                               // Memory register clock  内存寄存器时钟
+#define SHCP_PIN            2                               // Clock Pin
+#define EN_PIN              7                               // Output Enable
+#define DATA_PIN            8                               // Serial data  
+#define STCP_PIN            4                               // Latch Pin
 
 #define debug               1
 

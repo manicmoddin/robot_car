@@ -1,8 +1,8 @@
 #include <Arduino.h>
 
 // PWM control pin
-#define PWM1_PIN            5
-#define PWM2_PIN            6      
+#define PWM1_PIN            5                               // Left Motor Speed
+#define PWM2_PIN            6                               // Right Motor Speed
 // 74HCT595N Chip pins
 #define SHCP_PIN            2                               // Clock Pin
 #define EN_PIN              7                               // Output Enable
@@ -38,14 +38,14 @@ const int CClockwise    = 172;                             // Rotate Counter Clo
 const int Clockwise     = 83;                              // Rotate Clockwise         - M1 & M2 Forwards + M3 & M4 Backwards
 
 
-void Motor(int Dir, int Speed1 , int Speed2)
+void Motor(int Dir, int SpeedRight , int SpeedLeft)
 {
   if (debug == true) {
     Serial.println(Dir, BIN);  // Prints the Shift registers command as binary to the console
   }
 
-  analogWrite(PWM1_PIN, Speed1);
-  analogWrite(PWM2_PIN, Speed2);
+  analogWrite(PWM1_PIN, SpeedRight);
+  analogWrite(PWM2_PIN, SpeedLeft);
   digitalWrite(EN_PIN, LOW);
   digitalWrite(STCP_PIN, LOW);
   shiftOut(DATA_PIN, SHCP_PIN, MSBFIRST, Dir);
@@ -66,19 +66,19 @@ void setup()
 void loop()
 {
     /* Forward */
-    Motor(Forward, 250,250);      
+    Motor(Forward, 254,250);      
     delay(delayTime);
 
     /* Backward */
-    Motor(Backward, 250,250);
+    Motor(Backward, 254,250);
     delay(delayTime);
 
     /* Counter Clockwise */
-    Motor(CClockwise, 250,250);
+    Motor(CClockwise, 254,250);
     delay(delayTime);
 
     /* Clockwise */
-    Motor(Clockwise, 250,250);
+    Motor(Clockwise, 254,250);
     delay(delayTime);
 
     /* Stop */

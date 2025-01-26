@@ -66,19 +66,19 @@ void setup()
 void loop()
 {
     /* Forward */
-    Motor(Forward, 254,250);      
+    Motor(Forward, 250,250);      
     delay(delayTime);
 
     /* Backward */
-    Motor(Backward, 254,250);
+    Motor(Backward, 250,250);
     delay(delayTime);
 
     /* Counter Clockwise */
-    Motor(CClockwise, 254,250);
+    Motor(CClockwise, 250,250);
     delay(delayTime);
 
     /* Clockwise */
-    Motor(Clockwise, 254,250);
+    Motor(Clockwise, 250,250);
     delay(delayTime);
 
     /* Stop */

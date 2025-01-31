@@ -9,6 +9,10 @@
 #define DATA_PIN            8                               // Serial data  
 #define STCP_PIN            4                               // Latch Pin
 
+// Solar Motor Pins
+#define SOLAR1_PIN          A5
+#define SOLAR2_PIN          11
+
 #define debug               1
 
 const int delayTime = 500;
@@ -61,6 +65,8 @@ void setup()
     pinMode(STCP_PIN, OUTPUT);
     pinMode(PWM1_PIN, OUTPUT);
     pinMode(PWM2_PIN, OUTPUT);
+    pinMode(SOLAR1_PIN, OUTPUT);
+    pinMode(SOLAR2_PIN, OUTPUT);
 }
 
 void loop()
@@ -84,4 +90,18 @@ void loop()
     /* Stop */
     Motor(Stop, 250,250);
     delay(2000);
+
+    /* Solar Front */
+    digitalWrite(SOLAR1_PIN, 0);
+    digitalWrite(SOLAR2_PIN, 1);
+    delay(delayTime);
+    digitalWrite(SOLAR1_PIN, 0);
+    digitalWrite(SOLAR2_PIN, 0);
+
+    /* Solar Back */
+    digitalWrite(SOLAR1_PIN, 1);
+    digitalWrite(SOLAR2_PIN, 0);
+    delay(delayTime);
+    digitalWrite(SOLAR1_PIN, 0);
+    digitalWrite(SOLAR2_PIN, 0);
 }
